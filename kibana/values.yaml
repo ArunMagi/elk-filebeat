@@ -112,7 +112,8 @@ updateStrategy:
   type: "Recreate"
 
 service:
-  type: ClusterIP
+  annotations:
+  type: LoadBalancer
   loadBalancerIP: ""
   port: 5601
   nodePort: ""
@@ -130,19 +131,19 @@ service:
   httpPortName: http
 
 ingress:
-  enabled: true
+  enabled: false
   annotations:
-    kubernetes.io/ingress.class: nginx
+    {}
+    # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: kubernetes.docker.internal
+    - host: chart-example.local
       paths:
         - path: /
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
-
 readinessProbe:
   failureThreshold: 3
   initialDelaySeconds: 10

@@ -15,7 +15,7 @@ roles:
   remote_cluster_client: "true"
   ml: "true"
 
-replicas: 3
+replicas: 1
 minimumMasterNodes: 2
 
 esMajorVersion: ""
@@ -58,8 +58,8 @@ hostAliases: []
 #  - "foo.local"
 #  - "bar.local"
 
-image: "docker.elastic.co/elasticsearch/elasticsearch"
-imageTag: "7.15.0"
+image: "convergentech/elasticsearch"
+imageTag: "latest"
 imagePullPolicy: "IfNotPresent"
 
 podAnnotations:
